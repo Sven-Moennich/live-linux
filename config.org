@@ -1,0 +1,14 @@
+#!/bin/sh
+
+lb config noauto \
+    --mode debian \
+    --architectures i386 \
+    --linux-flavours 586 \
+    --distribution stretch \
+    --archive-areas "main contrib non-free" \
+    --debian-installer false \
+    --apt-indices false \
+    --memtest none \
+    --debootstrap-options "--variant=minbase" \
+    --bootappend-live "locales=de_DE.UTF-8 live-config.keyboard-layouts=de live-config.timezone=Europe/Berlin quiet" \
+    "${@}"
